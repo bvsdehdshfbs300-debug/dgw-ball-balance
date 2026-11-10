@@ -1,3 +1,20 @@
+## ESP32 控制端文件对照
+
+| 位置 | 对应部分 | 看什么 |
+| --- | --- | --- |
+| [main/main.c](main/main.c) | 主控制任务 | 收坐标、估计球速、选择状态与计算倾角 |
+| [main/emm42.c](main/emm42.c) | 电机通信 | 将控制量交给 Emm42_V5 电机 |
+| [main/emm42.h](main/emm42.h) | 电机接口声明 | 供主控制任务调用 |
+| [main/mpu6050.c](main/mpu6050.c) | 惯性传感器驱动 | 初始化、标定与加速度读取 |
+| [main/mpu6050.h](main/mpu6050.h) | 惯性传感器接口 | 驱动的数据与函数声明 |
+| [main/config.example.h](main/config.example.h) | 配置模板 | 网络、引脚、方向、限幅与控制参数 |
+| [main/CMakeLists.txt](main/CMakeLists.txt) | 组件构建 | 列出参与编译的 C 文件与依赖 |
+| [sdkconfig.defaults](sdkconfig.defaults) | 固件默认配置 | ESP32-S3 与控制台配置 |
+
+先从 config.example.h 生成自己的 config.h。下方保留原接线和运行步骤。
+
+---
+
 # 平衡球 ESP32-S3 端 (配合 MaixCAM2 `平衡球6.0_UDP.py`)
 
 ## 架构
