@@ -1,19 +1,26 @@
+# Python 缓存与本机环境
 __pycache__/
 *.py[cod]
 .venv/
 venv/
 .env
 .env.*
+
+# 固件和FPGA编译生成物
 build/
 db/
 incremental_db/
 output_files/
+
+# 本机配置：公开模板继续保留
 sdkconfig
 sdkconfig.old
 config.h
 !config.example.h
 .DS_Store
 .vscode/
+
+# 采集、训练和运行数据
 *.log
 *.csv
 *.cvimodel
@@ -22,6 +29,10 @@ config.h
 *.elf
 *.sof
 *.pof
+
+# 私钥文件
 *.pem
 *.key
+
+# 本机原始数据集
 datasets/
