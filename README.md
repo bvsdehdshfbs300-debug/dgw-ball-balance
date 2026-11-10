@@ -16,15 +16,19 @@ flowchart LR
  R --> V
 ```
 
-## 文件地图
+## 目录和文件对应什么
 
-- `maixcam/ball_udp.py`：目标检测、位置滤波、触屏设定与 UDP 数据发送。
-- `esp32/main/main.c`：球速估计、状态切换、控制量与输出整形。
-- `esp32/main/emm42.c`、`emm42.h`：电机通信。
-- `esp32/main/mpu6050.c`、`mpu6050.h`：同工程根中的 MPU6050 驱动，补齐决定版引用的源文件。
-- `esp32/main/config.example.h`：公开配置模板，网络信息已替换。
-- `esp32/README.md`：原工程接线及上电顺序。
-- `docs/control-notes.md`：原控制迭代笔记，部分参数为不同试验阶段的记录；实际参数以配对源码为准。
+| 位置 | 对应部分 | 看什么 |
+| --- | --- | --- |
+| [maixcam/](maixcam/README.md) | 视觉端 | 识别球、设定目标，通过 UDP 发送坐标 |
+| [esp32/](esp32/README.md) | 控制与执行端 | 球速估计、控制状态机、倾角与电机通信 |
+| [docs/](docs/README.md) | 配置与调试笔记 | 网络配置、参数迭代与控制方法 |
+| [README.md](README.md) | 项目总入口 | 先看模块对应关系，再选运行路线 |
+| [VALIDATION.md](VALIDATION.md) | 检查记录 | 哪些做过语法／编译检查，哪些还需上板 |
+| [NOTICE.md](NOTICE.md) | 来源与依赖 | 平台 SDK、运行库及原有许可 |
+| [LICENSE](LICENSE) | 开源许可 | MIT 授权条款与版权署名 |
+| [.gitignore](.gitignore) | 本地文件排除规则 | 个人配置、模型、日志和编译生成物 |
+
 
 ## 配置与构建
 
